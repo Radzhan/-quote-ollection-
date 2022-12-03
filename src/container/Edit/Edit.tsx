@@ -13,20 +13,18 @@ const Edit = () => {
     });
 
     const customerChanged = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = event.target
+        const { name, value } = event.target;
 
         setQuote(prev => ({
             ...prev,
             [name]: value,
-        }))
-    }
+        }));
+    };
 
     const fethOnePost = useCallback(async () => {
-        try {
-            const postResponse = await axiosApi.get('/posts/' + id + '.json');
-            setQuote(postResponse.data);
-        } finally {
-        }
+        const postResponse = await axiosApi.get('/quotes/' + id + '.json');
+        setQuote(postResponse.data);
+
     }, [id])
 
     const onFormSubmit = async (event: React.FormEvent) => {
@@ -49,7 +47,7 @@ const Edit = () => {
                 <div className="mb-3">
                     <label htmlFor="category" className="form-label">Category</label>
                     <select name="category" id="category" value={quote.category} onChange={customerChanged}>
-                        <option disabled value="">check</option>
+                        <option disabled value="">Chouse the category</option>
                         <option value="star-wars">Star wars</option>
                         <option value="motivational">Motivational</option>
                         <option value="famouse-people">Famouse people</option>

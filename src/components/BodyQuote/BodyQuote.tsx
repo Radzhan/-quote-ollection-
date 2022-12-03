@@ -1,22 +1,15 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axiosApi from '../../axiosApi';
+import React, { MouseEventHandler } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
     text:string;
     author: string;
     id: string;
+    remove: MouseEventHandler;
 }
 
-const BodyQuote : React.FC<Props>= ({text, author, id}) => {
-    const navigate = useNavigate();
-    const remove = async () => {
-        try {
-            await axiosApi.delete('/quotes/' + id + '.json')
-        } finally {
-            navigate('/')
-        }
-    };
+const BodyQuote : React.FC<Props>= ({text, author, id, remove}) => {
+    
     return (
         <div className="card">
             <div className="card-header">

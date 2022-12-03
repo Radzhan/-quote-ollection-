@@ -35,7 +35,7 @@ const SubmitNewQuote = () => {
                 <div className="mb-3">
                     <label htmlFor="category" className="form-label">Category</label>
                     <select name="category" id="category" value={quote.category} onChange={customerChanged}>
-                        <option disabled value="">check</option>
+                        <option disabled value="">Chouse the category</option>
                         <option value="star-wars">Star wars</option>
                         <option value="motivational">Motivational</option>
                         <option value="famouse-people">Famouse people</option>
